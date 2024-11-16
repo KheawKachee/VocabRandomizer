@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+    font-family: sans-serif;
+    table, th, td {
+        border: 1px solid;
+        width: 40%;
+    }
+    table{
+        margin: 0 auto;
+    }
+    
+}
