@@ -1,34 +1,43 @@
 {% extends 'base.html' %}
 {% block head %}
-<title>task master</title>
+<title>VocabRandomizer2</title>
 {% endblock %}
 
 {% block body %}
-<div class="content">
-    <h1>taskmaster</h1>
-    <table>
-        <tr>
-            <th>task</th>
-            <th>added</th>
-            <th>action</th>
+<div class="answer">
+    <h1 style="font-family:verdana; font-size: 70px;">vocab randomizer 2.0</h1>
+    <h2 style="color: rgb(14, 68, 133); font-size: 100px;">{{term.English}}</h2>
+    <h2 id="answer" style="color: rgba(41, 110, 4, 0.748); font-size: 100px;"></h2>
+    <button style="font-size: 50px;" id="button" onclick="showAnswer()">Show</button>
+    <script>
+        // Function to handle button click and display the value
+        function showAnswer() {
+            const value = "{{term.Thai}}";
+            const button = document.getElementById('button')
+            if (button.innerText === "Show"){
+                // The specific value you want to output
+                const value = "{{term.Thai}}";
+                
+                // Output the value inside the div with id 'output'
+                document.getElementById('answer').innerText = value;
+                button.innerText = "Hide";
+            }
+            else{
+                document.getElementById('answer').innerText = "";
+                button.innerText = "Show";
+            }
 
-        </tr>
-        {% for task in tasks %}
-            <tr>
-                <td>{{ task.content }}</td>
-                <td>{{ task.date_created.date() }}</td>
-
-                <td>
-                    <a href="/delete/{{task.id}}">delete</a>
-                    <br>
-                    <a href="/update/{{task.id}}">update</a>
-                </td>
-            </tr>
-        {% endfor %}   
-    </table>
+        }
+    </script>
     <form action="/" method="POST">
-        <input type="text" name="content" id="content">
-        <input type="submit" value="Add task">
+        <input type="submit" value="New word" style="font-size: 50px;">
+    </form>
+    
+</div>
+<div class="list" style="position: absolute; left: 0px; top: 0px;">
+    <form action="/list/" method="GET">
+        <input type="submit" value="Vocab list" style="font-size: 50px;">
     </form>
 </div>
+
 {% endblock %}

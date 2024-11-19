@@ -1,12 +1,30 @@
-body{
+body {
     text-align: center;
     font-family: sans-serif;
-    table, th, td {
-        border: 1px solid;
-        width: 40%;
-    }
-    table{
-        margin: 0 auto;
-    }
-    
+}
+
+/* Styling for table */
+table {
+    text-align: center;
+    width: 50%; /* Adjust the width as needed */
+    border: 2px solid black; /* Border for table */
+    border-collapse: collapse;
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 600px; /* Set a max height for vertical scroll */
+    display: block; /* Required for scroll to work */
+    scroll-snap-align: start;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Styling for table headers and cells */
+th, td {
+    border: 1px solid black; /* Border for th and td */
+    padding: 10px;
+    text-align: center;
+}
+
+.content {
+    width: 100%; /* or any other desired width */
 }

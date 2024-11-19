@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>VocabRandomizer2</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="font-family:verdana; font-size: 70px;">vocab randomizer 2.0</h1>
+
+    <table>
+        <tr>
+            <th style ='width: 10%;'>index</th>
+            <th style ='width: 45%;'>english</th>
+            <th style ='width: 45%;'>thai</th>
+
+        </tr>
+        {% for term in terms %}
+            <tr>
+                <td>{{ term.index }}</td>
+                <td>{{ term.English }}</td>
+                <td>{{ term.Thai }}</td>
+                <th><a href="/edit/{{term.index}}">edit</a></td>
+            </tr>
+        {% endfor %}   
+    </table>
+
+    <h2>upload your own .csv file</h2>
+    <form action="/list/" method="POST" enctype="multipart/form-data">
+        <input type="file" name="table" id="table" accept=".csv">
+        <input type="submit" value="Add .csv">
+    </form>
+
+</div>
+
+<div class="back" style="position: absolute; left: 0px; top: 0px;">
+    <form action="/">
+        <input type="submit" value="Back" style="font-size: 50px;">
+    </form>
+</div>
+{% endblock %}

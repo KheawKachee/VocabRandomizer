@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>VocabRandomizer2r</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="color: rgb(14, 68, 133); font-size: 100px;">Edit vocab</h1>
+    <form action="/edit/{{term.index}}" method="POST">
+        <input type="text" name="English" value='{{term.English}}'>
+        <input type="text" name="Thai" value='{{term.Thai}}'>
+        <br>
+        <input type="submit" value="Update">
+    </form>
+    
+</div>
+{% endblock %}
